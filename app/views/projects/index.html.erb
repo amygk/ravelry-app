@@ -1,0 +1,80 @@
+<!-- <h1>Projects#index</h1>
+<p>Find me in app/views/projects/index.html.erb</p>
+-->
+
+<%
+require 'rubygems'
+require 'Date'
+require 'httparty'
+
+  def get_rav_projects(user, key)
+    status = "frogged in-progress hibernating finished"
+    HTTParty.get('http://api.ravelry.com/projects/'+user+'/progress.json', :query => {:key => key, :status => status, :notes => 'false' })
+  end
+
+# http://api.ravelry.com/projects/amygk/progress.json?key=35aba1d1cc4f3e6e3ac6c841adb0f6cc2c65b2e9&status=in-progress+hibernating+finished+frogged&notes=true
+
+# get all the data
+value = get_rav_projects('amygk', '35aba1d1cc4f3e6e3ac6c841adb0f6cc2c65b2e9')
+
+# prep data for sorting
+for index in 0 ... value['projects'].size
+
+  # create numerical values for the status 
+  if value['projects'][index]['status'] == 'in-progress'
+     value['projects'][index]['statusVal'] = '0'
+  elsif value['projects'][index]['status'] == 'finished'
+     value['projects'][index]['statusVal'] = '1'
+  elsif value['projects'][index]['status'] == 'hibernating'
+     value['projects'][index]['statusVal'] = '2'
+  elsif value['projects'][index]['status'] == 'frogged'
+     value['projects'][index]['statusVal'] = '3'
+  end
+
+  # create actual dates to allow descending sort
+  if value['projects'][index]['started'].nil?
+     value['projects'][index]['startDate'] = Date.today
+  else
+     value['projects'][index]['startDate'] = Date.parse(value['projects'][index]['started'])
+  end
+end
+
+# sort by status, then by start date descending
+result = value['projects'].sort_by{|project| [ project['statusVal'], -project['startDate'].strftime("%s").to_i ] }
+ %>
+  <div class="description">
+    <h1>&nbsp;</h1>
+    <p>&nbsp;</p>
+  </div>
+
+  <div class="mod inventory-featured-default type-1">
+    <div class="top">
+      <div class="tl"></div>
+
+      <div class="tr"></div>
+    </div>
+
+    <div class="inner">
+      <div class="inner2">
+	<div class="hd">
+	  <div class="hd2">
+	    <h1></h1>
+	  </div>
+	</div>
+
+
+	<div class="bd">
+	  <div id="bodyElements" name="bodyElements" class="bd2">
+	    <div id="hProducts" id="hProducts" class="hproducts">
+	    </div>
+	    <div class="info"></div>
+	    <div class="slider ui-slider">
+	      <a href="javascript:void(0)" style="cursor: default;"><div class="ui-slider-handle"></div></a>
+	    </div>
+	  </div>
+
+	</div>
+
+      </div>
+    </div>
+  </div>

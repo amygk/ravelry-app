@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>RavelryApp</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Amy's Ravelry Project Data App</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <header>
+	<a href="/"><img height="73" src="http://style1.ravelrycache.com/images/ravelry-logo.gif" 
+	       title="Ravelry!" width="213" /></a>
+    </header>
+    <div class="container">
+      <%= yield %>
+    </div>
 
-<%= yield %>
-
-</body>
+  </body>
 </html>
