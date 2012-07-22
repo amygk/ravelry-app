@@ -2,6 +2,7 @@
 <p>Find me in app/views/projects/index.html.erb</p>
 -->
 
+
 <%
 require 'rubygems'
 require 'Date'
@@ -42,54 +43,53 @@ end
 # sort by status, then by start date descending
 result = value['projects'].sort_by{|project| [ project['statusVal'], -project['startDate'].strftime("%s").to_i ] }
  %>
-  <div class="description">
-    <h1>&nbsp;</h1>
-    <p>&nbsp;</p>
+<div class="description">
+  <h1>&nbsp;</h1>
+  <p>&nbsp;</p>
+</div>
+
+<div class="mod inventory-featured-default type-1">
+  <div class="top">
+    <div class="tl"></div>
+
+    <div class="tr"></div>
   </div>
 
-  <div class="mod inventory-featured-default type-1">
-    <div class="top">
-      <div class="tl"></div>
-
-      <div class="tr"></div>
-    </div>
-
-    <div class="inner">
-      <div class="inner2">
-	<div class="hd">
-	  <div class="hd2">
-	    <h1></h1>
-	  </div>
+  <div class="inner">
+    <div class="inner2">
+      <div class="hd">
+	<div class="hd2">
+	  <h1></h1>
 	</div>
+      </div>
 
 
-	<div class="bd">
-	  <div id="bodyElements" name="bodyElements" class="bd2">
-	    <div id="hProducts" id="hProducts" class="hproducts">
-	      <% for index in 0 ... result.size %>
-                  <div class="hproduct auto">
-                    <div class="">
-                      <div class="media">
-                        <a href="<%= result[index]['url'] %>">
-                          <img class="photo thumb"
-  		   	    src="<%=result[index]['thumbnail']['src']%>" /></a>
-                    </div>
+      <div class="bd">
+	<div class="bd2">
+	  <div class="hproducts">
+	    <% for index in 0 ... result.size %>
+            <div class="hproduct auto">
+              <div class="">
+                <div class="media">
+                  <a href="<%= result[index]['url'] %>">
+                    <img class="photo thumb"
+  		   	 src="<%=result[index]['thumbnail']['src']%>" /></a>
+                </div>
 
-                    <h1 class="fn h3"><a href="<%=result[index]['url']%>"
-		       rel="product" class="url"><%=result[index]['name']%></a></h1>
-		  
-		   </div>
-		  </div>
-		 <% end %>
+                <h1 class="fn h3"><a href="<%=result[index]['url']%>"
+				     rel="product" class="url"><%=result[index]['name']%></a></h1>
+		
+	      </div>
 	    </div>
-	    <div class="info"></div>
-	    <div class="slider ui-slider">
-	      <a href="javascript:void(0)" style="cursor: default;"><div class="ui-slider-handle"></div></a>
-	    </div>
+	    <% end %>
 	  </div>
-
+	  <div class="info"></div>
+	  <div class="slider ui-slider">
+	    <a href="javascript:void(0)" style="cursor: default;"><div class="ui-slider-handle"></div></a>
+	  </div>
 	</div>
 
       </div>
     </div>
   </div>
+</div>

@@ -1,19 +1,200 @@
-<!DOCTYPE html>
-<html>
+<html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
   <head>
     <title>Amy's Ravelry Project Data App</title>
-    <%= stylesheet_link_tag    "application", :media => "all" %>
-    <%= javascript_include_tag "application" %>
-    <%= csrf_meta_tags %>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type' />
+
+    <meta content='GeqsF4H2kfSX9vwwINfBfat0/VLSTZQjWu21n93mKdk=' id='authenticity-token' name='authenticity-token' />
+    <meta content='noodp' name='robots' />
+
+
+    <link rel="search" type="application/opensearchdescription+xml" title="Ravelry" href="http://www.ravelry.com/search.xml">
+    <!--[if lt IE 7]> 
+	<link href="http://style2.ravelrycache.com/stylesheets/ie6.r12.css" media="screen" rel="stylesheet" type="text/css" />
+	<![endif]-->
+    <!--[if lt IE 9]> 
+	<link href="http://style1.ravelrycache.com/stylesheets/ie.r4.css" media="screen" rel="stylesheet" type="text/css" />
+	<![endif]-->
+
+
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.3.0/build/cssreset/reset-min.css">
+
+    <style type="text/css" media="screen">
+      body,html {
+      margin: 0;
+      padding: 0;
+      background: #FFF;
+      height: 100%;
+      color: #eee;
+      font-family: Arial;
+      font-size: 10pt;				
+      }
+
+      a {
+      color:#eee;
+      text-decoration:none;
+      }
+      
+      strong {
+      font-weight:bold;
+      }
+      
+      .mod {
+      clear:both;
+      }
+
+      .coverflow .hproducts {
+      height: 80px;
+      padding: 30px;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 1000%;
+      }
+
+      .coverflow .bd2 {
+      -webkit-perspective: 500px;
+      margin: 0;
+      height: 60%;
+      border: none;
+      overflow: hidden;
+      width: 100%;
+      position: relative;
+      }
+
+      .coverflow .slider {
+      position: absolute;
+      bottom: 5px;
+      left:0;
+      margin:0 10%;
+      width: 80%;
+      height: 19px;
+      background: url(/assets/scrollbar-left.png) no-repeat top left,
+      url(/assets/scrollbar-right.png) no-repeat top right,
+      url(/assets/scrollbar-center.png) repeat-x;
+      }
+      
+      * html .coverflow .slider {background:url(/assets/scrollbar-center.png) repeat-x;}
+
+      .coverflow .ui-slider-handle {
+      position: absolute;
+      cursor: pointer;
+      cursor: hand;
+      top: 0px;
+      left: 0px;
+      height: 100%;
+      width: 181px;
+      background: url(/assets/handle.png) no-repeat;
+
+      }
+
+      .hproducts .hproduct {
+      width: 170px;
+      float: left;
+      margin: 5px;
+      position: relative;
+      text-align:center;
+      }
+
+      .hproduct img {
+      width:100%;				
+      border: 1px solid #999;
+      }
+
+      .coverflow .hproduct img {
+      -webkit-box-reflect:
+      below 0px 
+      -webkit-gradient(linear, left top, left bottom, 
+      from( transparent ), color-stop(0.5, transparent), to( rgba(50,50,50,0.7) ) 
+      );				
+      }
+
+      .coverflow .fn, .coverflow .pricing {
+      display:none;
+      }
+
+      .coverflow .info {
+      position:absolute;
+      top:190px;
+      left:0px;
+      z-index:10000;
+      text-align:center;
+      width:100%;
+      }
+      
+      @media screen and (-webkit-min-device-pixel-ratio:0) {
+      .hproducts .hproduct {
+      height:225px;
+      }
+      }
+      
+      .description {
+      max-width:400px;
+      padding:1em;
+      float:left;
+      }
+      
+      .description h1 {
+      font-size:130%;
+      font-weight:bold;
+      }
+      
+      .description p {
+      margin-left:1em;
+      }
+      
+      nav {
+      float:right;
+      padding:1em;
+      }
+      
+      .bottom {
+      text-align:center;
+      }
+      
+      .csstransforms3d .no-webkit {
+      display:none;
+      }
+      
+      .touch .mobile {
+      display:none;
+      }
+      
+      .swipe {
+      display:none;
+      }
+      
+      .touch .swipe {
+      display:inline;
+      }
+    </style>
+
+<script type="text/javascript" src="/assets/jquery-1.js"></script>
+<script type="text/javascript" src="/assets/ui.core.js"></script>
+<script type="text/javascript" src="/assets/ui.js"></script>
+<script type="text/javascript" src="/assets/effects.js"></script>
+<script type="text/javascript" src="/assets/ui.coverflow.js"></script>
+<script type="text/javascript" src="/assets/modernizr-1.7.min.js"></script>
+    
+    <script type="text/javascript">
+      $(document).ready(function() {
+      alert('testing 1 2 3');
+      $("div.hproducts").coverflow();
+      });
+      
+    </script>
+
+
   </head>
   <body>
-    <header>
-	<a href="/"><img height="73" src="http://style1.ravelrycache.com/images/ravelry-logo.gif" 
-	       title="Ravelry!" width="213" /></a>
-    </header>
-    <div class="container">
-      <%= yield %>
-    </div>
+    <div id='content'>
+      <div id='page'>
+	<div id='banner'>
+	  <a href="/"><img height="73" src="http://style1.ravelrycache.com/images/ravelry-logo.gif" 
+			   title="Ravelry!" width="213" /></a>
+	</div>
 
+	<%= yield %>
+	</div>  
+      </div>
   </body>
 </html>
