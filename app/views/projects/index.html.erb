@@ -66,6 +66,21 @@ result = value['projects'].sort_by{|project| [ project['statusVal'], -project['s
 	<div class="bd">
 	  <div id="bodyElements" name="bodyElements" class="bd2">
 	    <div id="hProducts" id="hProducts" class="hproducts">
+	      <% for index in 0 ... result.size %>
+                  <div class="hproduct auto">
+                    <div class="">
+                      <div class="media">
+                        <a href="<%= result[index]['url'] %>">
+                          <img class="photo thumb"
+  		   	    src="<%=result[index]['thumbnail']['src']%>" /></a>
+                    </div>
+
+                    <h1 class="fn h3"><a href="<%=result[index]['url']%>"
+		       rel="product" class="url"><%=result[index]['name']%></a></h1>
+		  
+		   </div>
+		  </div>
+		 <% end %>
 	    </div>
 	    <div class="info"></div>
 	    <div class="slider ui-slider">
