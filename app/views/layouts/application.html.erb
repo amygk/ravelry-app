@@ -168,17 +168,16 @@
       }
     </style>
 
-<script type="text/javascript" src="/assets/jquery-1.js"></script>
-<script type="text/javascript" src="/assets/ui.core.js"></script>
-<script type="text/javascript" src="/assets/ui.js"></script>
-<script type="text/javascript" src="/assets/effects.js"></script>
-<script type="text/javascript" src="/assets/ui.coverflow.js"></script>
-<script type="text/javascript" src="/assets/modernizr-1.7.min.js"></script>
+<%= javascript_include_tag "jquery-1.js" %>
+<%= javascript_include_tag "ui.core.js" %>
+<%= javascript_include_tag "ui.js" %>
+<%= javascript_include_tag "effects.js" %>
+<%= javascript_include_tag "ui.coverflow.js" %>
+<%= javascript_include_tag "modernizr-1.7.min.js" %>
     
     <script type="text/javascript">
       $(document).ready(function() {
-      alert('testing 1 2 3');
-      $("div.hproducts").coverflow();
+         $("div.hproducts").coverflow();
       });
       
     </script>

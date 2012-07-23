@@ -1,7 +1,3 @@
-<!-- <h1>Projects#index</h1>
-<p>Find me in app/views/projects/index.html.erb</p>
--->
-
 
 <%
 require 'rubygems'
@@ -79,6 +75,9 @@ result = value['projects'].sort_by{|project| [ project['statusVal'], -project['s
                 <h1 class="fn h3"><a href="<%=result[index]['url']%>"
 				     rel="product" class="url"><%=result[index]['name']%></a></h1>
 		
+                <p style="color:#000"><%=result[index]['status']%></p>
+			 
+
 	      </div>
 	    </div>
 	    <% end %>
