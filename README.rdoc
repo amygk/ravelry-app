@@ -3,8 +3,6 @@ Dear Casey,
 Here is my prototype project for the job application for the Ravelry Web developer position. It uses a
 publically available implementation of "Coverflow" style browsing of the photos from the Ravely project data.
 
-To run the app, please visit http://katriel.homeip.net:3000
-
 Known items
 
 1. There is currently no user-selectable way to change the sort order. Projects are sorted in the following order:
